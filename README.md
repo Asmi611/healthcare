@@ -1,6 +1,6 @@
 ## Goal
 Starter project for the Healthcare MVP: appointment → prescription → pharmacy pipeline.
-# 🏥 HealthConnect — Healthcare Appointment & Prescription MVP
+# HealthConnect(Healthcare Appointment & Prescription MVP)
 A streamlined healthcare workflow platform where **patients book appointments**, **doctors approve & prescribe**, and **pharmacies fulfill prescriptions**.  
 Built as a fast MVP for showcasing full-stack development skills across Flask, MySQL, HTML/CSS/JS.
 ## Features
