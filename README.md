@@ -1,8 +1,69 @@
-# healthcare - MVP Flask Starter (Hackathon-ready)
-
 ## Goal
 Starter project for the Healthcare MVP: appointment → prescription → pharmacy pipeline.
+# 🏥 HealthConnect — Healthcare Appointment & Prescription MVP
+A streamlined healthcare workflow platform where **patients book appointments**, **doctors approve & prescribe**, and **pharmacies fulfill prescriptions**.  
+Built as a fast MVP for showcasing full-stack development skills across Flask, MySQL, HTML/CSS/JS.
+## Features
+### Doctor Portal
+- View pending & approved appointments  
+- Approve / reject patient appointments  
+- Create digital prescriptions  
+- Generate prescription PDFs (ReportLab)
 
+### Patient Portal
+- Book appointments with available doctors  
+- Receive notifications  
+- View prescriptions & download PDFs  
+- Track prescription status
+
+### Pharmacy Portal
+- View all prescriptions  
+- Mark prescriptions as Ready or Delivered  
+- Notify patients automatically
+
+### Authentication
+- Secure login/signup for doctor, patient, pharmacy  
+- Password hashing  
+- Session-based access control  
+- Role-based dashboards
+## Tech Stack
+### Backend
+- **Python Flask**
+- **MySQL** (local or cloud)
+- ReportLab (PDF generation)
+
+### Frontend
+- HTML5, CSS3, JS  
+- Responsive Dashboard UI  
+
+### Architecture
+- MVC-inspired Flask structure  
+- Clean modular routes  
+- SQL schema + initialization scripts  
+- Notifications system
+## Folder Structure
+healthcare/
+│── app/
+│ ├── init.py
+│ ├── routes.py
+│ ├── db.py
+│ ├── static/
+│ │ ├── css/
+│ │ ├── js/
+│ │ └── images/
+│ └── templates/
+│ ├── auth/
+│ ├── doctor/
+│ ├── patient/
+│ ├── pharmacy/
+│ └── base.html
+│── docs/
+│ ├── init_db.sql
+│ └── schema.sql
+│── run.py
+│── requirements.txt
+│── .gitignore
+│── README.md
 ## Quick start (Windows CMD)
 1. Open CMD and `cd` to the folder where you want the project.
 2. Create project folder and virtualenv (optional via GUI):
