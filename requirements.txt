@@ -3,3 +3,4 @@ python-dotenv
 python-docx
 mysql-connector-python
 Werkzeug>=2.0
+reportlab
