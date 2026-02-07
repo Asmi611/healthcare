@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Create Prescription{% endblock %}
+{% block content %}
+<h3>Create Prescription for Appointment #{{ appt.id }}</h3>
+<p>Patient: {{ appt.patient_name }} &lt;{{ appt.patient_email }}&gt;</p>
+
+<form method="post">
+  <div class="mb-3">
+    <label class="form-label">Diagnosis</label>
+    <textarea class="form-control" name="diagnosis" rows="3" required></textarea>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Medicines (one per line)</label>
+    <textarea class="form-control" name="medicines" rows="4" required></textarea>
+  </div>
+  <div class="text-end">
+    <button class="btn btn-primary">Save Prescription</button>
+    <a class="btn btn-outline-secondary" href="{{ url_for('main.doctor_dashboard') }}">Cancel</a>
+  </div>
+</form>
+{% endblock %}

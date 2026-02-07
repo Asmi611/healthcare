@@ -1,0 +1,10 @@
+__pycache__
+*.pyc
+.env
+,env.txt
+uploads/
+venv/
+*.bak
+.DS_Store
+Thumbs.db
+

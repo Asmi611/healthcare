@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Patient Registration{% endblock %}
+{% block content %}
+<h3>Patient Registration</h3>
+<form method="post">
+  <div class="row g-3">
+    <div class="col-md-6"><label class="form-label">Full name</label><input class="form-control" name="full_name" required></div>
+    <div class="col-md-6"><label class="form-label">Email</label><input class="form-control" type="email" name="email" required></div>
+    <div class="col-md-6"><label class="form-label">Password</label><input class="form-control" type="password" name="password" required></div>
+    <div class="col-md-6"><label class="form-label">Phone</label><input class="form-control" name="phone"></div>
+    <div class="col-md-6"><label class="form-label">Date of birth</label><input class="form-control" type="date" name="date_of_birth"></div>
+    <div class="col-md-6"><label class="form-label">Gender</label><select class="form-select" name="gender"><option>Male</option><option>Female</option><option>Other</option></select></div>
+    <div class="col-12 mt-3"><button class="btn btn-primary">Register</button></div>
+  </div>
+</form>
+{% endblock %}

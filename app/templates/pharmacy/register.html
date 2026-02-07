@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Pharmacy Registration{% endblock %}
+{% block content %}
+<h3>Pharmacy Registration</h3>
+<form method="post" enctype="multipart/form-data">
+  <div class="row g-3">
+    <div class="col-md-6"><label class="form-label">Pharmacy Name</label><input class="form-control" name="pharmacy_name" required></div>
+    <div class="col-md-6"><label class="form-label">Email (business)</label><input class="form-control" type="email" name="email" required></div>
+    <div class="col-md-6"><label class="form-label">Phone</label><input class="form-control" name="phone"></div>
+    <div class="col-md-6"><label class="form-label">Owner name</label><input class="form-control" name="owner_name"></div>
+    <div class="col-12"><label class="form-label">Registration certificate (PDF/image)</label><input class="form-control" type="file" name="pharmacy_registration_certificate"></div>
+    <div class="col-12 mt-3"><button class="btn btn-primary">Register</button></div>
+  </div>
+</form>
+{% endblock %}

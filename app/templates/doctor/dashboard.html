@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% block title %}Doctor Dashboard{% endblock %}
+
+{% block content %}
+<h2>Doctor Dashboard</h2>
+<p>Pending appointments assigned to you:</p>
+
+{# Pending appointments #}
+{% if pending and pending|length > 0 %}
+  <div class="card p-3 mb-3 shadow-sm">
+    <div class="table-responsive">
+      <table class="table table-hover mb-0">
+        <thead class="thead-light">
+          <tr>
+            <th>ID</th>
+            <th>Patient</th>
+            <th>Email</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Status</th>
+            <th style="min-width:200px">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for a in pending %}
+          <tr>
+            <td>{{ a.id }}</td>
+            <td>{{ a.patient_name }}</td>
+            <td>{{ a.patient_email }}</td>
+            <td>{{ a.date }}</td>
+            <td>{{ a.time }}</td>
+            <td>{{ a.status }}</td>
+            <td>
+              <form method="post" action="{{ url_for('main.approve_appointment', appointment_id=a.id) }}" style="display:inline">
+                <button type="submit" class="btn btn-success btn-sm">Approve</button>
+              </form>
+
+              <form method="post" action="{{ url_for('main.reject_appointment', appointment_id=a.id) }}" style="display:inline; margin-left:6px;">
+                <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+              </form>
+
+              {# Optional: quick link to prescribe (if you want doctor to open create_prescription directly) #}
+              <a class="btn btn-outline-primary btn-sm" href="{{ url_for('main.create_prescription', appointment_id=a.id) }}" style="margin-left:6px;">
+                Create Rx
+              </a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% else %}
+  <div class="card p-3 shadow-sm mb-3">
+    <p class="text-muted mb-0">No pending appointments.</p>
+  </div>
+{% endif %}
+
+<hr/>
+
+{# Approved appointments #}
+<h4>Approved appointments</h4>
+{% if approved and approved|length > 0 %}
+  <div class="card p-3 mb-3 shadow-sm">
+    <div class="table-responsive">
+      <table class="table table-hover mb-0">
+        <thead class="thead-light">
+          <tr>
+            <th>ID</th>
+            <th>Patient</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Status</th>
+            <th style="min-width:140px">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for a in approved %}
+          <tr>
+            <td>{{ a.id }}</td>
+            <td>{{ a.patient_name }}</td>
+            <td>{{ a.date }}</td>
+            <td>{{ a.time }}</td>
+            <td>{{ a.status }}</td>
+            <td>
+              {# Link to create prescription (doctor-only) #}
+              <a href="{{ url_for('main.create_prescription', appointment_id=a.id) }}" class="btn btn-link btn-sm">Create Prescription</a>
+
+              {# If you implement a prescription download endpoint later, you can show it here:
+                 <a class="btn btn-outline-secondary btn-sm" href="{{ url_for('main.prescription_pdf', appointment_id=a.id) }}">Download Rx</a>
+               #}
+               <a class="btn btn-outline-secondary btn-sm"href="{{ url_for('main.prescription_pdf', appointment_id=a.id) }}">Download Rx (PDF)</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% else %}
+  <div class="card p-3 shadow-sm mb-3">
+    <p class="text-muted mb-0">No approved appointments yet.</p>
+  </div>
+{% endif %}
+
+{% endblock %}
